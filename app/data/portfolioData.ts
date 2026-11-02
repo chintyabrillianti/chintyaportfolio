@@ -2,7 +2,7 @@ export const personalData = {
   name: "Chintya Ayu Brillianti",
   shortName: "Chintya.",
   title: "FULL STACK DEVELOPER",
-  bio: "Lulusan S1 Teknik Informatika Universitas Pamulang dengan fokus pada pengembangan aplikasi web menggunakan Laravel, PHP, Next.js, dan TypeScript. Memiliki pengalaman mengembangkan sistem informasi di Yayasan Al-Farisi Indonesia dan PT Brianov Egatara Nirbana Estu, serta kemampuan dalam pengelolaan database dan integrasi REST API.",
+  bio: "Lulusan S1 Teknik Informatika Universitas Pamulang dengan fokus pada pengembangan aplikasi web menggunakan Laravel, PHP, Next.js, dan TypeScript. Memiliki pengalaman mengembangkan sistem Yayasan Al-Farisi Indonesia dan PT Brianov Egatara Nirbana Estu, serta kemampuan dalam pengelolaan database dan integrasi REST API.",
   education: {
     degree: "S1 Teknik Informatika",
     institution: "Universitas Pamulang",
@@ -58,7 +58,7 @@ export const experiencesData = [
     company: "Yayasan Al-Farisi Indonesia",
     position: "Full Stack Developer",
     period: "Januari 2026 – Agustus 2026",
-    description: "Merancang dan mengembangkan sistem informasi berbasis web, mengimplementasikan algoritma klasifikasi untuk menyeleksi penerima bantuan sosial, serta mengelola integrasi database dan antarmuka aplikasi."
+    description: "Merancang dan mengembangkan sistem berbasis web, mengimplementasikan algoritma klasifikasi untuk menyeleksi penerima bantuan sosial, serta mengelola integrasi database dan antarmuka aplikasi."
   },
   {
     company: "PT. Brianov Egatara Nirbana Estu",
@@ -72,7 +72,7 @@ export const projectsData = [
   {
     id: "cydics",
     title: "CYDICS — Social Assistance Management System",
-    subtitle: "Sistem Informasi Manajemen Yayasan dan Bantuan Sosial",
+    subtitle: "Sistem Manajemen Yayasan dan Bantuan Sosial",
     description: "Merancang dan mengembangkan sistem untuk mempermudah untuk proses pendaftaran warga, pengajuan bantuan, dan verifikasi penerima, serta dokumentasi berkas-berkas warga.",
     technologies: ["Laravel", "PHP", "MySQL", "JavaScript", "Bootstrap"],
     liveDemo: "https://cydics.ethiodeploy.app",

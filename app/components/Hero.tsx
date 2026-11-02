@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { personalData } from "../data/portfolioData";
 import { GithubIcon, LinkedinIcon, InstagramIcon } from "./Icons";
 import { ArrowRight, Mail } from "lucide-react";
@@ -70,19 +71,19 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-wrap items-center gap-4 pt-2">
-            <a
-              href="#project"
+            <Link
+              href="/project"
               className="group inline-flex shrink-0 flex-nowrap items-center gap-2 whitespace-nowrap px-6 py-3 rounded-xl bg-[#D7A9C5] text-[#130A19] font-semibold text-sm hover:bg-[#F5E6DC] hover:-translate-y-0.5 transition-all duration-300 shadow-lg shadow-[#D7A9C5]/20"
             >
               <span>Explore Projects</span>
               <ArrowRight size={16} className="shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
-            </a>
-            <a
-              href="#contact"
+            </Link>
+            <Link
+              href="/contact"
               className="inline-flex shrink-0 flex-nowrap items-center justify-center whitespace-nowrap px-6 py-3 rounded-xl bg-[#28143B] border border-[rgba(255,255,255,0.12)] text-[#F5E6DC] font-semibold text-sm hover:bg-[#33203C] hover:-translate-y-0.5 transition-all duration-300"
             >
               Get in Touch
-            </a>
+            </Link>
           </div>
 
           {/* Social Icons */}
