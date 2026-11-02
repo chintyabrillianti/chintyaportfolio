@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #130A19;
+    color: #F5E6DC;
+  }
+  body {
+    background-color: #130A19;
+    color: #F5E6DC;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+@keyframes typing-caret {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes profile-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes ambient-glow {
+  0%, 100% {
+    opacity: 0.68;
+  }
+  50% {
+    opacity: 0.78;
+  }
+}
+
+.typing-cursor {
+  animation: typing-caret 1s steps(1, end) infinite;
+}
+
+.profile-gentle-float {
+  animation: profile-float 7s ease-in-out infinite;
+}
+
+.profile-ambient-glow {
+  animation: ambient-glow 8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  a:hover,
+  button:hover {
+    transform: none !important;
+  }
+
+  .typing-cursor,
+  .profile-gentle-float,
+  .profile-ambient-glow {
+    animation: none;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #130A19;
+}
+::-webkit-scrollbar-thumb {
+  background: #33203C;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D7A9C5;
+}
