@@ -1,53 +1,53 @@
 import Image from "next/image";
-import styles from "./TechStack.module.css";
 import { Network } from "lucide-react";
+import styles from "./TechStack.module.css";
 
 type Technology = {
-  name: string;
+  title: string;
   logo: string;
   colorFilter?: string;
   isApi?: boolean;
 };
 
 const technologies: Technology[] = [
-  { name: "HTML5", logo: "html5/E34F26" },
-  { name: "CSS3", logo: "css/1572B6" },
-  { name: "JavaScript", logo: "javascript/F7DF1E" },
-  { name: "TypeScript", logo: "typescript/3178C6" },
-  { name: "React", logo: "react/61DAFB" },
-  { name: "Next.js", logo: "nextdotjs/FFFFFF" },
-  { name: "Tailwind CSS", logo: "tailwindcss/06B6D4" },
-  { name: "Bootstrap 5", logo: "bootstrap/7952B3" },
-  { name: "PHP", logo: "php/777BB4" },
-  { name: "Laravel", logo: "laravel/FF2D20" },
-  { name: "MySQL", logo: "mysql/4479A1" },
-  { name: "Git", logo: "git/F05032" },
-  { name: "GitHub", logo: "github/FFFFFF" },
-  { name: "Vercel", logo: "vercel/FFFFFF" },
+  { title: "HTML5", logo: "html5/E34F26" },
+  { title: "CSS3", logo: "css/1572B6" },
+  { title: "JavaScript", logo: "javascript/F7DF1E" },
+  { title: "TypeScript", logo: "typescript/3178C6" },
+  { title: "React", logo: "react/61DAFB" },
+  { title: "Next.js", logo: "nextdotjs/FFFFFF" },
+  { title: "Tailwind CSS", logo: "tailwindcss/06B6D4" },
+  { title: "Bootstrap 5", logo: "bootstrap/7952B3" },
+  { title: "PHP", logo: "php/777BB4" },
+  { title: "Laravel", logo: "laravel/FF2D20" },
+  { title: "MySQL", logo: "mysql/4479A1" },
+  { title: "Git", logo: "git/F05032" },
+  { title: "GitHub", logo: "github/FFFFFF" },
+  { title: "Vercel", logo: "vercel/FFFFFF" },
   {
-    name: "Visual Studio Code",
+    title: "Visual Studio Code",
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg",
   },
-  { name: "Figma", logo: "figma/F24E1E" },
-  { name: "Postman", logo: "postman/FF6C37" },
+  { title: "Postman", logo: "postman/FF6C37" },
+  { title: "Figma", logo: "figma/F24E1E" },
   {
-    name: "Microsoft Excel",
+    title: "Microsoft Excel",
     logo: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/microsoftexcel.svg",
     colorFilter:
       "brightness(0) saturate(100%) invert(34%) sepia(22%) saturate(1391%) hue-rotate(91deg) brightness(93%) contrast(91%)",
   },
   {
-    name: "IBM SPSS",
+    title: "IBM SPSS",
     logo: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/ibm.svg",
     colorFilter:
       "brightness(0) saturate(100%) invert(17%) sepia(94%) saturate(2297%) hue-rotate(197deg) brightness(89%) contrast(103%)",
   },
-  { name: "REST API", logo: "", isApi: true },
+  { title: "REST API", logo: "", isApi: true },
 ];
 
-function TechnologyItem({ name, logo, colorFilter, isApi }: Technology) {
+function TechnologyItem({ title, logo, colorFilter, isApi }: Technology) {
   return (
-    <li className={styles.item}>
+    <li className={styles.marqueeItem}>
       {isApi ? (
         <Network
           aria-hidden="true"
@@ -67,12 +67,20 @@ function TechnologyItem({ name, logo, colorFilter, isApi }: Technology) {
           unoptimized
         />
       )}
-      <span>{name}</span>
+      <span>{title}</span>
     </li>
   );
 }
 
 export default function TechStack() {
+  const technologyList = (hidden: boolean) => (
+    <ul className={styles.marqueeGroup} aria-hidden={hidden || undefined}>
+      {technologies.map((technology) => (
+        <TechnologyItem key={technology.title} {...technology} />
+      ))}
+    </ul>
+  );
+
   return (
     <section id="tech-stack" className={styles.section} aria-labelledby="tech-stack-heading">
       <div className={styles.container}>
@@ -82,23 +90,10 @@ export default function TechStack() {
             Tech <span className={styles.headingAccent}>Stack</span>
           </h2>
         </div>
-
-        <div
-          className={styles.marquee}
-          role="region"
-          aria-label="Technology stack"
-        >
-          <div className={styles.track}>
-            <ul className={styles.group}>
-              {technologies.map((technology) => (
-                <TechnologyItem key={technology.name} {...technology} />
-              ))}
-            </ul>
-            <ul className={styles.group} aria-hidden="true">
-              {technologies.map((technology) => (
-                <TechnologyItem key={technology.name} {...technology} />
-              ))}
-            </ul>
+        <div className={styles.marquee} role="region" aria-label="Technology stack">
+          <div className={styles.marqueeTrack}>
+            {technologyList(false)}
+            {technologyList(true)}
           </div>
         </div>
       </div>

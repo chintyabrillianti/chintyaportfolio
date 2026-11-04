@@ -3,10 +3,8 @@
 import { personalData } from "../data/portfolioData";
 import { GithubIcon, LinkedinIcon, InstagramIcon } from "./Icons";
 import { Mail, ArrowUpRight } from "lucide-react";
-import { motion, useReducedMotion } from "framer-motion";
 
 export default function Contact() {
-  const prefersReducedMotion = useReducedMotion();
   const contactCards = [
     {
       name: "Email",
@@ -39,57 +37,55 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-24 bg-[#130A19] relative border-t border-[rgba(255,255,255,0.06)]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8">
-        {/* Section Header */}
-        <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
-          whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.55 }}
-          className="flex flex-col items-center text-center mb-16 space-y-3"
-        >
-          <span className="text-xs font-semibold tracking-widest text-[#D7A9C5] uppercase px-3 py-1 rounded-full bg-[#28143B] border border-[rgba(255,255,255,0.12)]">
-            CONTACT
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#F5E6DC]">
-            Let&apos;s Connect
-          </h2>
-          <p className="text-base text-[#BDAABD] max-w-xl">
-            Berikut adalah cara untuk menghubungi saya melalui platform sosial media dan email.
-          </p>
-        </motion.div>
+    <section
+      id="contact"
+      className="relative min-h-[calc(100svh-5rem)] border-t border-white/[0.06] bg-[#130A19] py-24 sm:py-32"
+    >
+      <div className="mx-auto grid max-w-7xl gap-14 px-6 sm:px-8 lg:grid-cols-[1fr_0.85fr] lg:gap-24">
+        <div className="flex flex-col justify-between gap-10">
+          <div className="space-y-5">
+            <p className="text-[10px] font-semibold tracking-[0.22em] text-[#D7A9C5] uppercase">
+              Say hello
+            </p>
+            <h1 className="max-w-xl text-5xl font-semibold leading-[0.98] tracking-[-0.06em] text-[#F5E6DC] sm:text-7xl">
+              Let&apos;s make
+              <br />
+              <span className="font-normal text-[#BDAABD]">something matter.</span>
+            </h1>
+            <p className="max-w-lg pt-2 text-base leading-[1.9] text-[#BDAABD]">
+              Berikut adalah cara untuk menghubungi saya melalui platform sosial media dan email.
+            </p>
+          </div>
+        </div>
 
-        {/* Contact Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="border-t border-white/10">
           {contactCards.map((card, idx) => (
-            <motion.a
-              key={idx}
+            <a
+              key={card.name}
               href={card.link}
               target="_blank"
               rel="noopener noreferrer"
-              initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
-              whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 0.5, delay: prefersReducedMotion ? 0 : idx * 0.08 }}
-              whileHover={prefersReducedMotion ? undefined : { y: -3 }}
-              className="p-6 rounded-3xl bg-[#28143B] border border-[rgba(255,255,255,0.12)] hover:border-[#D7A9C5] transition-all flex flex-col justify-between space-y-6 group shadow-xl"
+              className="group flex items-center gap-4 border-b border-white/10 py-5 transition-colors hover:bg-white/[0.02] sm:gap-6 sm:py-6"
             >
-              <div className="space-y-4">
-                <div className="w-12 h-12 rounded-2xl bg-[#33203C] border border-[rgba(255,255,255,0.08)] flex items-center justify-center text-[#D7A9C5] group-hover:scale-105 transition-transform duration-300">
-                  {card.icon}
-                </div>
-                <div className="space-y-1">
-                  <h3 className="text-lg font-bold text-[#F5E6DC]">{card.name}</h3>
-                  <p className="text-xs text-[#BDAABD] break-all">{card.value}</p>
-                </div>
-              </div>
-
-              <div className="flex items-center justify-between pt-4 border-t border-[rgba(255,255,255,0.08)] text-xs font-semibold text-[#D7A9C5] group-hover:text-[#F5E6DC] transition-colors">
-                <span>{card.actionText}</span>
-                <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </div>
-            </motion.a>
+              <span className="w-7 text-[10px] tabular-nums text-[#BDAABD]/60">
+                0{idx + 1}
+              </span>
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center text-[#D7A9C5] transition-transform group-hover:-translate-y-0.5">
+                {card.icon}
+              </span>
+              <span className="min-w-0 flex-1">
+                <span className="block text-sm font-medium text-[#F5E6DC]">
+                  {card.name}
+                </span>
+                <span className="mt-1 block break-all text-xs text-[#BDAABD]">
+                  {card.value}
+                </span>
+              </span>
+              <span className="flex items-center gap-2 text-xs text-[#BDAABD] transition-colors group-hover:text-[#D7A9C5]">
+                <span className="hidden sm:inline">{card.actionText}</span>
+                <ArrowUpRight size={16} aria-hidden="true" />
+              </span>
+            </a>
           ))}
         </div>
       </div>

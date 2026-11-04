@@ -114,20 +114,20 @@ export default function Certificates() {
   };
 
   return (
-    <section className="py-16 bg-[#190E20] relative border-t border-[rgba(255,255,255,0.06)]">
+    <section className="relative border-t border-white/[0.06] bg-[#190E20] py-20 sm:py-24">
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         <motion.div
           initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
           whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.6 }}
-          className="space-y-10 max-w-6xl mx-auto"
+          className="mx-auto max-w-6xl space-y-9"
         >
-          <div className="text-center space-y-2">
-            <span className="text-xs font-semibold tracking-widest text-[#D7A9C5] uppercase">
-              CERTIFICATES & TRAINING
+          <div className="space-y-3">
+            <span className="text-[10px] font-semibold tracking-[0.22em] text-[#D7A9C5] uppercase">
+              04 — Certificates &amp; training
             </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#F5E6DC]">
+            <h2 className="text-2xl font-semibold tracking-[-0.03em] text-[#F5E6DC] sm:text-3xl">
               Sertifikat & Pelatihan
             </h2>
           </div>
@@ -137,7 +137,12 @@ export default function Certificates() {
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
-            <div className="overflow-hidden -mx-3" aria-roledescription="carousel">
+            <div
+              className="-mx-3 overflow-hidden"
+              role="region"
+              aria-label="Carousel sertifikat dan pelatihan"
+              aria-roledescription="carousel"
+            >
               <div
                 className="flex items-stretch"
                 onTransitionEnd={handleTransitionEnd}
@@ -165,15 +170,15 @@ export default function Certificates() {
                     >
                       <motion.article
                         whileHover={prefersReducedMotion ? undefined : { y: -3 }}
-                        className={`h-full flex flex-col p-6 mx-3 rounded-3xl bg-[#28143B] border shadow-xl transition-colors ${
+                        className={`flex h-[360px] flex-col p-4 sm:p-5 md:h-[300px] mx-3 bg-[#24152b] border transition-colors ${
                           isCertification
-                            ? "border-[#D7A9C5]/50 hover:border-[#D7A9C5]"
-                            : "border-[rgba(255,255,255,0.12)] hover:border-[#D7A9C5]/50"
+                            ? "border-[#D7A9C5]/40 hover:border-[#D7A9C5]/80"
+                            : "border-white/10 hover:border-[#D7A9C5]/50"
                         }`}
                       >
-                        <div className="flex items-start gap-3">
+                        <div className="flex min-h-[150px] items-start gap-3 md:min-h-[112px]">
                           <div
-                            className={`shrink-0 p-2.5 rounded-xl ${
+                            className={`shrink-0 p-2 rounded-xl ${
                               isCertification
                                 ? "bg-[#39213D] text-[#D7A9C5]"
                                 : "bg-[#33203C] text-[#BDAABD]"
@@ -185,9 +190,9 @@ export default function Certificates() {
                               <BookOpenCheck size={20} />
                             )}
                           </div>
-                          <div className="min-w-0">
+                          <div className="min-w-0 flex-1">
                             <span
-                              className={`inline-flex mb-2 px-2.5 py-1 rounded-full border text-[10px] font-bold tracking-wider ${
+                              className={`inline-flex mb-2 px-2.5 py-1 rounded-full border text-[9px] font-bold tracking-wider ${
                                 isCertification
                                   ? "border-[#D7A9C5]/40 bg-[#D7A9C5]/10 text-[#D7A9C5]"
                                   : "border-[rgba(255,255,255,0.12)] bg-[#33203C] text-[#BDAABD]"
@@ -195,18 +200,18 @@ export default function Certificates() {
                             >
                               {isCertification ? "SERTIFIKASI" : "PELATIHAN"}
                             </span>
-                            <h3 className="text-base sm:text-lg font-bold text-[#F5E6DC] leading-snug">
+                            <h3 className="text-sm sm:text-base font-bold text-[#F5E6DC] leading-snug">
                               {certificate.name}
                             </h3>
                           </div>
                         </div>
 
-                        <div className="mt-4 space-y-3">
-                          <p className="text-sm text-[#BDAABD] leading-relaxed">
+                        <div className="mt-2 flex min-h-[72px] flex-col items-start md:min-h-[58px]">
+                          <p className="text-xs sm:text-sm text-[#BDAABD] leading-relaxed">
                             {certificate.organization}
                           </p>
                           <span
-                            className={`inline-flex px-3 py-1 rounded-full bg-[#33203C] text-xs font-medium ${categoryAccent}`}
+                            className={`mt-2 inline-flex px-2.5 py-1 rounded-full bg-[#33203C] text-[10px] font-medium ${categoryAccent}`}
                           >
                             {certificate.year}
                           </span>
@@ -216,7 +221,7 @@ export default function Certificates() {
                           href={certificate.file}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="mt-auto pt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#D7A9C5] hover:text-[#F5E6DC] transition-colors"
+                          className="mt-auto inline-flex min-h-9 items-center gap-2 border-t border-white/[0.08] pt-2 text-xs font-semibold text-[#D7A9C5] hover:text-[#F5E6DC] transition-colors"
                         >
                           Lihat Sertifikat
                           <ExternalLink size={16} aria-hidden="true" />
@@ -230,7 +235,7 @@ export default function Certificates() {
 
             <div className="flex items-center justify-between gap-4">
               <p
-                className="text-xs text-[#BDAABD]"
+                className="text-xs tabular-nums text-[#BDAABD]"
                 aria-live="polite"
                 aria-atomic="true"
               >

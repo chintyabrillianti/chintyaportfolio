@@ -73,7 +73,7 @@ export const projectsData = [
     id: "cydics",
     title: "CYDICS — Social Assistance Management System",
     subtitle: "Sistem Manajemen Yayasan dan Bantuan Sosial",
-    description: "Merancang dan mengembangkan sistem untuk mempermudah untuk proses pendaftaran warga, pengajuan bantuan, dan verifikasi penerima, serta dokumentasi berkas-berkas warga.",
+    description: "Merancang dan mengembangkan sistem untuk mempermudah proses pendaftaran warga, pengajuan bantuan, dan verifikasi penerima, serta dokumentasi berkas-berkas warga.",
     technologies: ["Laravel", "PHP", "MySQL", "JavaScript", "Bootstrap"],
     liveDemo: "https://cydics.ethiodeploy.app",
     github: "https://github.com/chintyabrillianti/cydics-web-application",
